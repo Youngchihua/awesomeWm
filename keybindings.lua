@@ -7,13 +7,13 @@ local menubar = require("menubar")
 -- General Awesome keys
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+              {description="显示帮助菜单", group="awesome"}),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+              {description = "显示主菜单", group = "awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
+              {description = "重启awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+              {description = "退出", group = "awesome"}),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -23,11 +23,11 @@ awful.keyboard.append_global_keybindings({
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
+              {description = "运行lua代码提示", group = "awesome"}),
     awful.key({ modkey, "Shift"}, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+              {description = "打开终端", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+              {description = "运行提示", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 })
@@ -76,7 +76,7 @@ awful.keyboard.append_global_keybindings({
                     c:activate { raise = true, context = "key.unminimize" }
                   end
               end,
-              {description = "restore minimized", group = "client"}),
+              {description = "恢复最小化的窗口", group = "client"}),
 })
 
 -- Layout related keybindings
