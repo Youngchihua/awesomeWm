@@ -28,8 +28,8 @@ awful.keyboard.append_global_keybindings({
               {description = "打开终端", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "运行提示", group = "launcher"}),
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun -theme /home/Hua/.config/rofi/rofi.rasi") end,
+              {description = "show rofi", group = "launcher"}),
 })
 
 -- Tags related keybindings
