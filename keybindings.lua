@@ -1,6 +1,6 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local menubar = require("menubar")
+
 
 -- {{{ Key bindings
 
@@ -30,6 +30,11 @@ awful.keyboard.append_global_keybindings({
               {description = "运行提示", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun -theme /home/Hua/.config/rofi/rofi.rasi") end,
               {description = "show rofi", group = "launcher"}),
+    awful.key({ modkey }, "b", function ()
+                local s = awful.screen.focused()
+                s.mywibox.visible = not s.mywibox.visible 
+            end,
+            {description = "切换状态栏显示", group = "awesome"}),
 })
 
 -- Tags related keybindings
