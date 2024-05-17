@@ -214,3 +214,15 @@ require("notifications")
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
+
+-- 启用低内存消耗设置
+collectgarbage("setpause", 110)
+collectgarbage("setstepmul", 1000)
+gears.timer({
+    timeout = 5,
+    autostart = true,
+    call_now = true,
+    callback = function()
+        collectgarbage("collect")
+    end,
+})

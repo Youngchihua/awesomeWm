@@ -46,6 +46,19 @@ ruled.client.connect_signal("request::rules", function()
         properties = { titlebars_enabled = false      }
     }
 
+    -- ruled.client.append_rule {
+    --     rule       = {name= "scratchpad"},
+    --     properties = {
+    --         floating = true,
+    --         width    = 1200,
+    --         height    = 600,
+    --         x = (screen[1].geometry.width - 1200) / 2, 
+    --         y = (screen[1].geometry.height - 600) / 2, 
+    --         sticky = true, -- 使窗口始终可见
+    --         skip_taskbar = true -- 不显示在任务栏
+    --     }
+    -- }
+    
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- ruled.client.append_rule {
     --     rule       = { class = "Firefox"     },

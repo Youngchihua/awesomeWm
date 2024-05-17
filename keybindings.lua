@@ -1,5 +1,6 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local scratchpad = require("scratchpad")
 
 
 -- {{{ Key bindings
@@ -26,6 +27,8 @@ awful.keyboard.append_global_keybindings({
               {description = "运行lua代码提示", group = "awesome"}),
     awful.key({ modkey, "Shift"}, "Return", function () awful.spawn(terminal) end,
               {description = "打开终端", group = "launcher"}),
+    awful.key({ modkey, }, "`", function () scratchpad.toggle() end,
+              {description = "浮动st", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "运行提示", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun -theme /home/Hua/.config/rofi/rofi.rasi") end,
