@@ -109,7 +109,7 @@ awful.mouse.append_global_mousebindings({
 -- }}}
 
 -- {{{ Key bindings
-require("keybindings")
+require("binds.keybindings")
 -- }}}
 
 -- {{{ Rules

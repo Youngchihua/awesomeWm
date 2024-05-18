@@ -1,6 +1,6 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local scratchpad = require("scratchpad")
+local scratchpad = require("binds.scratchpad")
 
 
 -- {{{ Key bindings

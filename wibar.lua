@@ -2,6 +2,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 local cpu_widget = require("widgets.cpu-widget.cpu-widget")
+local batteryarc_widget = require("widgets.batteryarc-widget.batteryarc")
 -- {{{ Wibar
 
 -- Keyboard map indicator and switcher
@@ -81,12 +82,16 @@ screen.connect_signal("request::desktop_decoration", function(s)
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
                 wibox.widget.systray(),
-                cpu_widget({
+                wibox.container.margin(cpu_widget({
                     width = 70,
                     step_width = 2,
                     step_spacing = 0,
                     color = '#434c5e'
-                }),
+                }),4,4),
+                wibox.container.margin(batteryarc_widget({
+                    show_current_level = true,
+                    arc_thickness = 2,
+                }),4,4),
                 mytextclock,
                 s.mylayoutbox,
             },
