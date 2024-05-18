@@ -12,7 +12,8 @@ ruled.client.connect_signal("request::rules", function()
             focus     = awful.client.focus.filter,
             raise     = true,
             screen    = awful.screen.preferred,
-            placement = awful.placement.no_overlap+awful.placement.no_offscreen
+            placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+            size_hints_honor = false  -- 忽略客户端的大小提示，以确保可以自由调整大小
         }
     }
 
@@ -23,7 +24,8 @@ ruled.client.connect_signal("request::rules", function()
             instance = { "copyq", "pinentry" },
             class    = {
                 "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv",
-                "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer"
+                "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer",
+                "qq"
             },
             -- Note that the name property shown in xprop might be set slightly after creation of the client
             -- and the name shown there might not match defined rules here.
