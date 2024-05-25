@@ -1,7 +1,7 @@
 local awful = require("awful")
 local wibox = require("wibox")
 
-local cpu_widget = require("widgets.cpu-widget.cpu-widget")
+local cpu_widget = require("ui.widgets.cpu-widget.cpu-widget")
 -- {{{ Wibar
 
 -- Keyboard map indicator and switcher
@@ -49,7 +49,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end),
             awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end),
         }
-    }
+    } 
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {

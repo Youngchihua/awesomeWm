@@ -10,7 +10,7 @@ local theme = {}
 -- Default variables
 -------------------------------------------------------------------------------
 theme.useless_gap                       = 0
-theme.font                              = "JetBrainsMono Nerd Font Mono 10"
+theme.font                              = "sans 9"
 
 theme.bg_normal                         = color.background
 theme.bg_focus                          = color.background
@@ -22,7 +22,7 @@ theme.fg_focus                          = color.foreground
 theme.fg_urgent                         = color.red
 theme.fg_minimize                       = color.foreground
 
-theme.border_width                      = 2
+theme.border_width                      = 1
 theme.border_color_active               = color.blue
 theme.border_color_normal               = color.background
 
@@ -91,6 +91,6 @@ theme.titlebar_close_button_focus_hover = titlebar_path .. "button_close.png"
 -------------------------------------------------------------------------------
 theme.bg_systray = color.base
 theme.systray_max_rows = nil
-theme.systray_icon_spacing = 10
+theme.systray_icon_spacing = 3
 
 return theme
