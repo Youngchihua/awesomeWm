@@ -199,16 +199,16 @@ end)
 
 client.connect_signal("request::default_keybindings", function()
     awful.keyboard.append_client_keybindings({
-        awful.key({ modkey,           }, "f",
+        awful.key({ modkey, "Shift"}, "f",
             function (c)
                 c.fullscreen = not c.fullscreen
                 c:raise()
             end,
-            {description = "toggle fullscreen", group = "client"}),
+            {description = "切换全屏", group = "client"}),
         awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
                 {description = "close", group = "client"}),
-        awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
-                {description = "toggle floating", group = "client"}),
+        awful.key({ modkey,   }, "f",  awful.client.floating.toggle                     ,
+                {description = "切换浮动", group = "client"}),
         awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
                 {description = "move to master", group = "client"}),
         awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
