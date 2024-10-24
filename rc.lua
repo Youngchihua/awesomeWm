@@ -5,98 +5,53 @@ pcall(require, "luarocks.loader")
 
 -- Standard awesome library
 local gears = require("gears")
-local awful = require("awful")
-require("awful.autofocus")
--- Widget and layout library
-local wibox = require("wibox")
--- Theme handling library
-local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
--- Declarative object management
-local ruled = require("ruled")
-local menubar = require("menubar")
-local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 naughty.connect_signal("request::display_error", function(message, startup)
-    naughty.notification {
-        urgency = "critical",
-        title   = "Oops, an error happened"..(startup and " during startup!" or "!"),
-        message = message
-    }
+  naughty.notification {
+    urgency = "critical",
+    title   = "Oops, an error happened" .. (startup and " during startup!" or "!"),
+    message = message
+  }
 end)
 -- }}}
+
+-- Allow Awesome to automatically focus a client upon changing tags or loading.
+require('awful.autofocus')
+-- Enable hotkeys help widget for VIM and other apps
+-- when client with a matching name is opened:
+require("awful.hotkeys_popup.keys")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 require("themes")
 
--- This is used later as the default terminal and editor to run.
-terminal = "wezterm"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+-- -- {{{ Tag layout
+-- require("layouts")
+-- -- }}}
 
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
--- }}}
 
--- {{{ Menuq
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
--- {{{ Tag layout
-require("layouts")
--- }}}
-
--- {{{ Wallpaper
-screen.connect_signal("request::wallpaper", function(s)
-    awful.wallpaper {
-        screen = s,
-        widget = {
-            {
-                image     = beautiful.wallpaper,
-                upscale   = true,
-                downscale = true,
-                widget    = wibox.widget.imagebox,
-            },
-            valign = "center",
-            halign = "center",
-            tiled  = false,
-            widget = wibox.container.tile,
-        }
-    }
-end)
--- }}}
 
 -- {{{ Wibar
-require("wibar")
+-- require("wibar")
 -- }}}
 
 -- {{{ Mouse bindings
-awful.mouse.append_global_mousebindings({
-    awful.button({ }, 4, awful.tag.viewprev),
-    awful.button({ }, 5, awful.tag.viewnext),
-})
+
 -- }}}
 
 -- {{{ Key bindings
-require("binds.keybindings")
+require("binds")
 -- }}}
 
 -- {{{ Rules
 -- Rules to apply to new clients.
-require("rules")
+require("config.rules")
 -- }}}
 
 -- {{{ Titlebars
@@ -104,23 +59,17 @@ require("rules")
 require("signal")
 -- }}}
 
--- {{{ Notifications
-require("notifications")
--- }}}
 
--- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:activate { context = "mouse_enter", raise = false }
-end)
 
 -- 启用低内存消耗设置
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
 gears.timer({
-    timeout = 5,
-    autostart = true,
-    call_now = true,
-    callback = function()
-        collectgarbage("collect")
-    end,
+  timeout = 5,
+  autostart = true,
+  call_now = true,
+  callback = function()
+    collectgarbage("collect")
+  end,
 })
+

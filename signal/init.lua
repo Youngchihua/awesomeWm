@@ -1,3 +1,5 @@
 return {
-    client = require(... .. '.client')
+    client = require(... .. '.client'),
+    tag = require(... ..'.tag'),
+    screen = require(... .. '.screen')
 }
