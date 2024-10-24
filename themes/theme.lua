@@ -54,7 +54,7 @@ theme.taglist_spacing                   = 1
 theme.tasklist_disable_icon             = false
 
 
-theme.wallpaper = "~/Downloads/wallpaper/wallhaven-qzmlj5_1920x1080.png"
+theme.wallpaper = "/home/Hua/Downloads/wallpaper/wallhaven-qzmlj5_1920x1080.png"
 
 -------------------------------------------------------------------------------
 -- layout

@@ -101,7 +101,7 @@ require("rules")
 
 -- {{{ Titlebars
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-require("titlebars")
+require("signal")
 -- }}}
 
 -- {{{ Notifications

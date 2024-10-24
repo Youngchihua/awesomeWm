@@ -13,24 +13,24 @@ awful.keyboard.append_global_keybindings({
               {description = "显示主菜单", group = "awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "重启awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    awful.key({ modkey, "Control", "Shift"  }, "q", awesome.quit,
               {description = "退出", group = "awesome"}),
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "运行lua代码提示", group = "awesome"}),
+    -- awful.key({ modkey }, "x",
+    --           function ()
+    --               awful.prompt.run {
+    --                 prompt       = "Run Lua code: ",
+    --                 textbox      = awful.screen.focused().mypromptbox.widget,
+    --                 exe_callback = awful.util.eval,
+    --                 history_path = awful.util.get_cache_dir() .. "/history_eval"
+    --               }
+    --           end,
+    --           {description = "运行lua代码提示", group = "awesome"}),
     awful.key({ modkey, "Shift"}, "Return", function () awful.spawn(terminal) end,
               {description = "打开终端", group = "launcher"}),
     awful.key({ modkey, }, "`", function () scratchpad.toggle() end,
               {description = "浮动st", group = "launcher"}),
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "运行提示", group = "launcher"}),
+    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "运行提示", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun -theme /home/Hua/.config/rofi/rofi.rasi") end,
               {description = "show rofi", group = "launcher"}),
     awful.key({ modkey }, "b", function ()

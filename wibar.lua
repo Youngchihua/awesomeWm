@@ -3,6 +3,7 @@ local wibox = require("wibox")
 
 local cpu_widget = require("ui.widgets.cpu-widget.cpu-widget")
 local assault = require("ui.widgets.battery.assault")
+local systray = require("ui.bar.systray")
 -- {{{ Wibar
 
 -- Keyboard map indicator and switcher
@@ -80,7 +81,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                wibox.widget.systray(),
+                systray,
                 wibox.container.margin(cpu_widget({
                     width = 70,
                     step_width = 2,
@@ -90,11 +91,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 wibox.container.margin(assault({
                     battery = "BAT0", -- 获取数据的电池ID
                     adapter = "ADP0", -- 获取数据的交流适配器ID
-                    height = 13,
+                    height = 12.5,
                     critical_level = 0.15,
                     critical_color = "#ff0000",
                     charging_color = "#00ff00"
-                 }),4,4),
+                 }),0,4),
                 mytextclock,
                 s.mylayoutbox,
             },
