@@ -4,10 +4,10 @@ local wibox     = require('wibox')
 
 
 --- Attach tags and widgets to all screens.
-screen.connect_signal('request::desktop_decoration', function(s)
+screen.connect_signal("request::desktop_decoration", function(s)
     -- Create all tags and attach the layouts to each of them.
-    awful.tag(require('config.user').tags, s, awful.layout.layouts[1])
-    -- Attach a wibar to each screen.
+    awful.tag(require('config.user').tags, s, awful.layout.layouts[2])
+    -- Attach a wibar to each screen.r
     s.bar = require('ui.wibar')(s)
  end)
 
