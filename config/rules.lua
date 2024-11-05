@@ -48,6 +48,32 @@ ruled.client.connect_signal("request::rules", function()
         properties = { titlebars_enabled = false      }
     }
 
+    ruled.client.append_rule {
+        -- 微信设置在其他窗口对焦后会消失
+        rule       = { class = "wechat" },
+        properties = {
+            floating = true,            -- 设置 WeChat 为浮动窗口
+            -- width    = 800,             -- 可选：设置初始宽度
+            -- height   = 600,             -- 可选：设置初始高度
+            tag      = "8",             -- 可选：分配到特定标签
+            focus    = false,            -- 打开时自动聚焦
+            skip_taskbar = false,        -- 不显示在任务栏
+            sticky = false,              -- 使窗口始终可见于所有标签
+            border_width = 0, -- 移除窗口边框
+        }
+    }
+
+    ruled.client.append_rule {
+        rule       = { class = "QQ" },
+        properties = {
+            floating = true,            
+            tag      = "9",             -- 可选：分配到特定标签
+            border_width = 0, -- 移除窗口边框
+            placement = awful.placement.centered  -- 居中窗口
+        }
+    }
+    
+
     -- ruled.client.append_rule {
     --     rule       = {name= "scratchpad"},
     --     properties = {
