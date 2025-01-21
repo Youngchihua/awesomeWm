@@ -50,17 +50,21 @@ local acpi_battery_is_charging = function (battery)
 	return string.find(o, 'Charging')
 end
 
-local acpi_battery_percent = function (battery)
-	local now  = io.open('/sys/class/power_supply/' .. battery .. '/energy_now') or
-		     io.open('/sys/class/power_supply/' .. battery .. '/charge_now')
-	local full = io.open('/sys/class/power_supply/' .. battery .. '/energy_full') or
-		     io.open('/sys/class/power_supply/' .. battery .. '/charge_full')
-	if (now == nil) or (full == nil) then return 0 end
-	local out_n = now:read()
-	now:close()
-	local out_f = full:read()
-	full:close()
-	return tonumber(out_n)/tonumber(out_f)
+local function read_file(path)
+	local file = io.open(path)
+	if not file then return nil end
+	local content = file:read()
+	file:close()
+	return content
+end
+
+local function acpi_battery_percent(battery)
+	local now = read_file('/sys/class/power_supply/' .. battery .. '/energy_now') or
+				read_file('/sys/class/power_supply/' .. battery .. '/charge_now')
+	local full = read_file('/sys/class/power_supply/' .. battery .. '/energy_full') or
+				 read_file('/sys/class/power_supply/' .. battery .. '/charge_full')
+	if not now or not full then return 0 end
+	return tonumber(now)/tonumber(full)
 end
 
 local battery_bolt_generate = function (width, height)

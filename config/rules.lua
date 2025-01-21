@@ -11,10 +11,11 @@ ruled.client.connect_signal("request::rules", function()
         rule       = { },
         properties = {
             focus     = awful.client.focus.filter,
-            raise     = true,
+            raise     = false,
             screen    = awful.screen.preferred,
             placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-            size_hints_honor = false  -- 忽略客户端的大小提示，以确保可以自由调整大小
+            size_hints_honor = false,
+            maximized = false,
         }
     }
 

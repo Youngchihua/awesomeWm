@@ -95,7 +95,7 @@ local function worker(user_args)
     local background_color = args.background_color or "#00000000"
     local enable_kill_button = args.enable_kill_button or false
     local process_info_max_length = args.process_info_max_length or -1
-    local timeout = args.timeout or 1
+    local timeout = args.timeout or 3
 
     local cpugraph_widget = wibox.widget {
         max_value = 100,

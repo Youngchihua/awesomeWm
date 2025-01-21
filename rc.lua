@@ -72,4 +72,3 @@ gears.timer({
     collectgarbage("collect")
   end,
 })
-

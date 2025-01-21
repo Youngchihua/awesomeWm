@@ -8,8 +8,11 @@ ruled.notification.connect_signal('request::ruled', function ()
     ruled.notification.append_rule({
         rule = nil,
         properties = {
-            screen = awful.screen.properties,
-            implicit_timeout = 5
+            screen = awful.screen.preferred,
+            implicit_timeout = 5,
+            max_height = 100,
+            max_width = 300,
+            opacity = 0.9
         }
     })
 end)
